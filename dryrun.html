@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Directory</title>
+    <link rel="stylesheet" href="dryrun.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">HealthCare Directory</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                
+                <li><a href="#">Hospitals</a></li>
+                 <li><a href="#">Donations</a></li>
+                <li><a href="#">Health Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search hospitals, departments, doctors or locations...">
+            <button class="search-btn" onclick="performSearch()">Search</button>
+        </div>
+        <div class="search-options">
+            <div class="search-option">
+                <input type="checkbox" id="searchHospitals" checked>
+                <label for="searchHospitals">Hospitals</label>
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="searchDepartments" checked>
+                <label for="searchDepartments">Departments</label>
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="searchDoctors" checked>
+                <label for="searchDoctors">Doctors</label>
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="searchLocations" checked>
+                <label for="searchLocations">Locations</label>
+            </div>
+        </div>
+        <div class="location-filters">
+            <span>Filter by location: </span>
+            <button class="location-btn" onclick="filterByLocation('all')">All</button>
+            <button class="location-btn" onclick="filterByLocation('guntur')">Guntur</button>
+            <button class="location-btn" onclick="filterByLocation('vijayawada')">Vijayawada</button>
+            <button class="location-btn" onclick="filterByLocation('ongole')">Ongole</button>
+            <button class="location-btn" onclick="filterByLocation('kadapa')">Kadapa</button>
+            <button class="location-btn" onclick="filterByLocation('tirupati')">Tirupati</button>
+            <button class="location-btn" onclick="filterByLocation('vizag')">Vizag</button>
+        </div>
+    </div>
+
+    <div class="container" id="hospitalContainer">
+        <!-- Hospital 1 -->
+        <div class="hospital" data-location="guntur">
+            <h2>City General Hospital</h2>
+            <div class="hospital-location">Guntur</div>
+            <button class="dept-btn" onclick="toggleDepartments('h1-depts')">View Departments</button>
+            <div class="departments" id="h1-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. John Smith</div>
+                        <div class="doctor">Dr. Mary Johnson</div>
+                        <div class="doctor">Dr. Robert Chen</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Sarah Wilson</div>
+                        <div class="doctor">Dr. Michael Brown</div>
+                        <div class="doctor">Dr. Lisa Park</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Pediatrics</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. James Lee</div>
+                        <div class="doctor">Dr. Emily White</div>
+                        <div class="doctor">Dr. David Kim</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Orthopedics</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Thomas Anderson</div>
+                        <div class="doctor">Dr. Jane Martinez</div>
+                        <div class="doctor">Dr. Kevin Wong</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Dermatology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. William Taylor</div>
+                        <div class="doctor">Dr. Patricia Davis</div>
+                        <div class="doctor">Dr. Richard Moore</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Ophthalmology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Susan Clark</div>
+                        <div class="doctor">Dr. Joseph Garcia</div>
+                        <div class="doctor">Dr. Nancy Lee</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>ENT</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Charles Wilson</div>
+                        <div class="doctor">Dr. Margaret Kim</div>
+                        <div class="doctor">Dr. Steven Brown</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hospital 2 -->
+        <div class="hospital" data-location="vijayawada">
+            <h2>Memorial Medical Center</h2>
+            <div class="hospital-location">Vijayawada</div>
+            <button class="dept-btn" onclick="toggleDepartments('h2-depts')">View Departments</button>
+            <div class="departments" id="h2-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Paul Anderson</div>
+                        <div class="doctor">Dr. Elizabeth Taylor</div>
+                        <div class="doctor">Dr. George Washington</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Helen Rodriguez</div>
+                        <div class="doctor">Dr. Andrew Phillips</div>
+                        <div class="doctor">Dr. Rachel Green</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Pediatrics</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Daniel Lewis</div>
+                        <div class="doctor">Dr. Jessica Martinez</div>
+                        <div class="doctor">Dr. Christopher Robinson</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Oncology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Ryan Murphy</div>
+                        <div class="doctor">Dr. Olivia Johnson</div>
+                        <div class="doctor">Dr. Nathan Scott</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Psychiatry</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Samantha White</div>
+                        <div class="doctor">Dr. Brian Carter</div>
+                        <div class="doctor">Dr. Victoria Hughes</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Urology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Eric Bennett</div>
+                        <div class="doctor">Dr. Michelle Garcia</div>
+                        <div class="doctor">Dr. Justin Martin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hospital 3 -->
+        <div class="hospital" data-location="ongole">
+            <h2>University Health System</h2>
+            <div class="hospital-location">Ongole</div>
+            <button class="dept-btn" onclick="toggleDepartments('h3-depts')">View Departments</button>
+            <div class="departments" id="h3-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Jonathan Fox</div>
+                        <div class="doctor">Dr. Amanda Cooper</div>
+                        <div class="doctor">Dr. Alexander White</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Benjamin Parker</div>
+                        <div class="doctor">Dr. Katherine Stone</div>
+                        <div class="doctor">Dr. Matthew Wilson</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Endocrinology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Laura Jenkins</div>
+                        <div class="doctor">Dr. Peter Morgan</div>
+                        <div class="doctor">Dr. Sophia Chen</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Pulmonology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Timothy Gray</div>
+                        <div class="doctor">Dr. Natalie Reed</div>
+                        <div class="doctor">Dr. Brandon Walker</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Rheumatology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Christine Adams</div>
+                        <div class="doctor">Dr. Alan Davis</div>
+                        <div class="doctor">Dr. Kelly Nguyen</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Nephrology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Rebecca Brooks</div>
+                        <div class="doctor">Dr. Jacob Miller</div>
+                        <div class="doctor">Dr. Lauren Scott</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hospital 4 -->
+        <div class="hospital" data-location="kadapa">
+            <h2>Saint Mary's Hospital</h2>
+            <div class="hospital-location">Kadapa</div>
+            <button class="dept-btn" onclick="toggleDepartments('h4-depts')">View Departments</button>
+            <div class="departments" id="h4-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Anthony Roberts</div>
+                        <div class="doctor">Dr. Megan Thompson</div>
+                        <div class="doctor">Dr. Edward Johnson</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Vanessa Miller</div>
+                        <div class="doctor">Dr. Jason Williams</div>
+                        <div class="doctor">Dr. Christine Brown</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Gastroenterology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Gregory House</div>
+                        <div class="doctor">Dr. Allison Cameron</div>
+                        <div class="doctor">Dr. Robert Chase</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Hematology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Melissa Wright</div>
+                        <div class="doctor">Dr. Kenneth Harris</div>
+                        <div class="doctor">Dr. Sandra Lopez</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Emergency Medicine</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Linda Nelson</div>
+                        <div class="doctor">Dr. Jeffrey Thomas</div>
+                        <div class="doctor">Dr. Barbara Young</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Geriatrics</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Walter White</div>
+                        <div class="doctor">Dr. Jesse Pinkman</div>
+                        <div class="doctor">Dr. Skyler Lambert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital 5 -->
+        <div class="hospital" data-location="tirupati">
+            <h2>Riverside Community Hospital</h2>
+            <div class="hospital-location">Tirupati</div>
+            <button class="dept-btn" onclick="toggleDepartments('h5-depts')">View Departments</button>
+            <div class="departments" id="h5-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Heather Sullivan</div>
+                        <div class="doctor">Dr. Douglas Baker</div>
+                        <div class="doctor">Dr. Emma Fischer</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Vincent Price</div>
+                        <div class="doctor">Dr. Diana Ross</div>
+                        <div class="doctor">Dr. Leonard McCoy</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Obstetrics</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Marcus Welby</div>
+                        <div class="doctor">Dr. Miranda Bailey</div>
+                        <div class="doctor">Dr. Addison Montgomery</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Physical Therapy</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Teresa Jackson</div>
+                        <div class="doctor">Dr. Carl Stevens</div>
+                        <div class="doctor">Dr. Pamela Green</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Radiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Alexandra Collins</div>
+                        <div class="doctor">Dr. Philip Morris</div>
+                        <div class="doctor">Dr. Evelyn Porter</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Surgery</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Cristina Yang</div>
+                        <div class="doctor">Dr. Derek Shepherd</div>
+                        <div class="doctor">Dr. Meredith Grey</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospital 6 -->
+        <div class="hospital" data-location="vizag">
+            <h2>Pacific Northwest Medical Center</h2>
+            <div class="hospital-location">Vizag</div>
+            <button class="dept-btn" onclick="toggleDepartments('h6-depts')">View Departments</button>
+            <div class="departments" id="h6-depts">
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Cardiology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Henry Richmond</div>
+                        <div class="doctor">Dr. Sabrina Chen</div>
+                        <div class="doctor">Dr. Mark Sloan</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Neurology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Zachary Taylor</div>
+                        <div class="doctor">Dr. Tina Fey</div>
+                        <div class="doctor">Dr. Adam Sandler</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Infectious Disease</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Julia Roberts</div>
+                        <div class="doctor">Dr. Bradley Cooper</div>
+                        <div class="doctor">Dr. Anne Hathaway</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Immunology</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Patrick Harris</div>
+                        <div class="doctor">Dr. Felicity Jones</div>
+                        <div class="doctor">Dr. Keith Urban</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Allergy</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Catherine Bell</div>
+                        <div class="doctor">Dr. Frank Sinatra</div>
+                        <div class="doctor">Dr. Audrey Hepburn</div>
+                    </div>
+                </div>
+                <div class="department">
+                    <div class="dept-header" onclick="toggleDoctors(this)">
+                        <span>Sports Medicine</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <div class="doctors">
+                        <div class="doctor">Dr. Michael Jordan</div>
+                        <div class="doctor">Dr. Serena Williams</div>
+                        <div class="doctor">Dr. Tom Brady</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dryrun.js"></script>
+</body>
+</html>

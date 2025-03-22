@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-bar {
+            background: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #00b4d8;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Center the section dynamically */
+        #donation-form, #search-form {
+            margin-top: 50px;
+        }
+
+        /* Hide buttons after click */
+        #button-container.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-bar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Svāsthya Hospital Service</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#hospitals">Hospitals</a></li>
+                <li><a href="donation.html" style="background: rgba(255, 255, 255, 0.2);">Donation</a></li>
+                
+               
+                <li><a href="#contact">Health Information</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="button-container">
+            <h2>Select an Option</h2>
+            <button class="submit-btn" onclick="showSection('donation-form')">Organ Donation</button>
+            <button class="submit-btn" onclick="showSection('search-form')">Organ Searching</button>
+        </div>
+
+        <!-- Donation Registration Form -->
+        <div id="donation-form" class="section">
+            <h2>Organ Donation Registration</h2>
+            <form class="form-group">
+                <label>Name:</label>
+                <input type="text" placeholder="Enter your name" required>
+                <label>Date of Birth:</label>
+                <input type="date" required>
+                <label>Contact:</label>
+                <input type="text" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email" required>
+                <label>Address:</label>
+                <input type="text" placeholder="Enter your address" required>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+
+        <!-- Organ Searching Form -->
+        <div id="search-form" class="section">
+            <h2>Search for Available Organs</h2>
+            <form class="form-group">
+                <label>Select Your Location:</label>
+                <select id="city-select">
+                    <option value="">-- Select Your Location --</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Guntur">Guntur</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                </select>
+                <label>Select Department:</label>
+                <select id="department-select">
+                    <option value="">-- Select Department --</option>
+                    <option value="cardiology">Cardiology - Heart</option>
+                    <option value="nephrology">Nephrology - Kidney</option>
+                </select>
+                <button type="button" class="submit-btn" onclick="submitForm()">Search</button>
+            </form>
+            <div id="hospital-list"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Organ and Tissue Donation System | All rights reserved</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide buttons after selection
+            document.getElementById("button-container").classList.add("hidden");
+
+            // Hide all sections
+            document.getElementById("donation-form").style.display = "none";
+            document.getElementById("search-form").style.display = "none";
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function submitForm() {
+            const city = document.getElementById("city-select").value;
+            const department = document.getElementById("department-select").value;
+            const resultDiv = document.getElementById("hospital-list");
+
+            if (!city || !department) {
+                resultDiv.innerHTML = "<p style='color:red;'>Please select both location and department.</p>";
+                return;
+            }
+
+            const hospitals = {
+                Vijayawada: {
+                    cardiology: ["Heart Center", "Vijayawada Cardiac Care"],
+                    nephrology: ["Vijayawada Nephrology Clinic", "Kidney Dialysis Center"]
+                },
+                Guntur: {
+                    cardiology: ["Guntur Heart Institute", "Heart Care Guntur"],
+                    nephrology: ["Guntur Kidney Center", "Dialysis Center Guntur"]
+                },
+                Hyderabad: {
+                    cardiology: ["Hyderabad Heart Hospital", "CardioCare Hyderabad"],
+                    nephrology: ["Hyderabad Nephrology Center", "Hyderabad Kidney Care"]
+                }
+            };
+
+            // Check if hospitals exist for the selected city and department
+            if (hospitals[city] && hospitals[city][department]) {
+                resultDiv.innerHTML = `
+                    <h3>Hospitals in ${city} for ${department.replace("-", " ")}</h3>
+                    <ul>
+                        ${hospitals[city][department].map(hospital => `<li>${hospital}</li>`).join('')}
+                    </ul>
+                `;
+            } else {
+                resultDiv.innerHTML = "<p style='color:red;'>No hospitals found for the selected city and department.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

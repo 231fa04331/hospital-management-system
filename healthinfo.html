@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Health Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      background: #2c3e50;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #3498db;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: #1E90FF;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #1E90FF;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #1E90FF;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 1rem;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+
+      ul li {
+        padding: 0.8rem;
+      }
+
+      .image-container img {
+        height: auto !important;
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Svāsthya Health Guide</a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Departments</a></li>
+        <li><a href="#">Donation</a></li>
+        <li><a href="#">Hospitals</a></li>
+        <li><a href="#">Health Info</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h2>Hygiene: The First Step to Good Health</h2>
+      <p>Proper hygiene is the cornerstone of a healthy life. Regularly washing your hands, bathing, and maintaining
+        cleanliness prevents the spread of germs and reduces the risk of diseases.</p>
+      <ul>
+        <li>Wash your hands with soap before eating and after using the restroom.</li>
+        <li>Keep your surroundings clean and dispose of waste responsibly.</li>
+        <li>Maintain oral hygiene by brushing your teeth twice daily.</li>
+        <li>Shower daily and wear clean clothes.</li>
+      </ul>
+      <div class="image-container">
+        <img src="https://via.placeholder.com/800x300" alt="Hygiene Tips">
+      </div>
+    </section>
+
+    <section>
+      <h2>Disease Prevention Tips</h2>
+      <p>Preventing diseases is more cost-effective and easier than treating them. Following some basic steps can
+        significantly reduce your chances of falling ill:</p>
+      <ul>
+        <li>Get vaccinated for common diseases like flu and measles.</li>
+        <li>Avoid close contact with sick individuals.</li>
+        <li>Boost your immune system with a balanced diet and regular exercise.</li>
+        <li>Wash your hands often and avoid touching your face with unwashed hands.</li>
+      </ul>
+      <div class="image-container">
+        <img src="https://via.placeholder.com/800x250" alt="Disease Prevention">
+      </div>
+    </section>
+
+    <section>
+      <h2>Nutrition: Feed Your Body Right</h2>
+      <p>Nutrition plays a vital role in maintaining overall health. A well-balanced diet includes a variety of foods to
+        provide essential nutrients:</p>
+      <ul>
+        <li>Eat plenty of fruits and vegetables for vitamins and minerals.</li>
+        <li>Include lean proteins like chicken, fish, eggs, and legumes.</li>
+        <li>Opt for whole grains like brown rice, quinoa, and oats.</li>
+        <li>Drink plenty of water to stay hydrated and avoid sugary drinks.</li>
+      </ul>
+      <div class="image-container">
+        <img src="https://via.placeholder.com/800x400" alt="Nutrition Tips">
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Comprehensive Health Guide | All Rights Reserved</p>
+  </footer>
+
+</body>
+
+</html>

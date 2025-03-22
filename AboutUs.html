@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Svāsthya Hospital Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Section */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 3px solid #2c3e50;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Updated Navbar Container */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hospital Name */
+        .nav-logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Quote Section */
+        .about-hero {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            margin: 30px auto;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+            border-right: 5px solid #3498db;
+            width: 80%;
+        }
+
+        /* Scrolling Section Container */
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            margin-top: 20px;
+        }
+
+        /* Sliding Content */
+        .scroll-content {
+            display: flex;
+            width: 200%;
+            animation: scroll 24s linear infinite;
+        }
+
+        /* Sections Inside the Scrolling Area */
+        .scroll-item {
+            width: 50%;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #3498db;
+            border-right: 5px solid #3498db;
+        }
+
+        /* Scrolling Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            41% { transform: translateX(0); }
+            45% { transform: translateX(-50%); }
+            91% { transform: translateX(-50%); }
+            95% { transform: translateX(0); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Hospital Container */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .hospital {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .hospital:hover {
+            transform: translateY(-5px);
+        }
+
+        .hospital h2 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .hospital-location {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            font-size: 1rem;
+            box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <!-- Name on the left side -->
+            <a href="#" class="nav-logo">Svāsthya Hospital Service</a>
+            
+            <!-- Navigation Links on the right side -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Hospitals</a></li>
+                <li><a href="#">Health Information</a></li>
+                <li><a href="#">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Highlighted Quote Section -->
+    <section class="about-hero">
+        <p><b>“The best hospitals combine cutting-edge technology with compassionate care and a commitment to excellence.”</b></p>
+    </section>
+
+    <!-- Scrolling Container -->
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <section class="scroll-item">
+                <h2>How It Works</h2>
+                <p>Our website allows patients to search for top-rated doctors and hospitals in their area. Patients can filter search results by specialty, location, and more.</p>
+                <p>Patients can also read reviews from other patients and view detailed profiles of each hospital.</p>
+            </section>
+
+            <section class="scroll-item">
+                <h2>Our Mission</h2>
+                <p>To provide a comprehensive directory of top-rated doctors and hospitals, empowering patients to make informed decisions about their healthcare.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Svāsthya Hospital Service. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
